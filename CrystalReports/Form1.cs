@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,14 @@ namespace CrystalReports
         {
             InitializeComponent();
         }
+
+        public void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+            EmployeeList rpt = new EmployeeList();
+
+            crystalReportViewer1.ReportSource = rpt;
+        }
+
+        
     }
 }
