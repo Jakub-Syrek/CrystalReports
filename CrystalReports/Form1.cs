@@ -18,13 +18,23 @@ namespace CrystalReports
             InitializeComponent();
         }
 
-        public void crystalReportViewer1_Load(object sender, EventArgs e)
+        //public void crystalReportViewer1_Load(object sender, EventArgs e)
+        //{
+        //    EmployeeList rpt = new EmployeeList();
+
+        //    crystalReportViewer1.ReportSource = rpt;
+        //}
+
+        private void crystalReportViewer1_Load_1(object sender, EventArgs e)
         {
             EmployeeList rpt = new EmployeeList();
 
             crystalReportViewer1.ReportSource = rpt;
         }
 
-        
+        private void subReport11_InitReport(object sender, EventArgs e)
+        {
+
+        }
     }
 }
