@@ -16,8 +16,22 @@ namespace CrystalReportsEntity1
         {
             InitializeComponent();
             CrystalReportDataSet crystalReport = new CrystalReportDataSet();
-            var path = @"C:\Users\jaqbs\source\repos\CrystalReportsSolution\CrystalReportsEntity1\CrystalReportDataSet.rpt";
-            crystalReport.Load(path);
+            using (DataSet1 dataSet1 = new DataSet1())
+            {
+                DataSet1 dsReport = new DataSet1();
+                var EmployeeTable = dataSet1.Employees.Copy();
+                var OrdersTable = dataSet1.Orders.Copy();
+
+
+                dsReport.Tables.Add(EmployeeTable);
+                dsReport.Tables.Add(OrdersTable);
+
+                var path = @"C:\Users\jaqbs\source\repos\CrystalReportsSolution\CrystalReportsEntity1\CrystalReportDataSet.rpt";
+                crystalReport.Load(path);
+                crystalReport.SetDataSource(dsReport);
+                //                  select employee.FirstName);
+            }
+
             crystalReportViewer2.ReportSource = crystalReport;
             crystalReportViewer2.Refresh();
 
